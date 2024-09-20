@@ -1,0 +1,31 @@
+Body mass index, known as BMI, is often used to diagnose obesity. To calculate BMI, multiply weight in pounds by 703, divide by height in inches and then divide again by height in inches. Or divide weight in kilograms by height in meters squared. There are several online calculators available that help calculate BMI.
+See BMI calculator
+
+
+
+BMI
+Weight status
+
+
+
+
+Below 18.5
+Underweight
+
+
+18.5-24.9
+Healthy
+
+
+25.0-29.9
+Overweight
+
+
+30.0 and higher
+Obesity
+
+
+
+Asians with a BMI of 23 or higher may have an increased risk of health problems.
+For most people, BMI provides a reasonable estimate of body fat. However, BMI doesn't directly measure body fat. Some people, such as muscular athletes, may have a BMI in the obesity category even though they don't have excess body fat.
+Many health care professionals also measure around a person's waist to help guide treatment decisions. This measurement is called a waist circumference. Weight-related health problems are more common in men with a waist circumference over 40 inches (102 centimeters). They're more common in women with a waist measurement over 35 inches (89 centimeters). Body fat percentage is another measurement that may be used during a weight loss program to track progress.

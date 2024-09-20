@@ -1,6 +1,7 @@
 import bfsLink as bl
 import requests
 from bs4 import BeautifulSoup
+import os
 
 import re
 
@@ -35,7 +36,7 @@ base_class="cmp-anchor--plain cmp-button cmp-button__link cmp-result-name__link"
 for i in range(1,len(links)):
 
     ExtactDisease(links[i],base_class)"""
-def ExtractSymptom(url):
+def ExtractSymptom(url,save_directory):
     response=requests.get(url)
     print(response)
 
@@ -47,16 +48,30 @@ def ExtractSymptom(url):
     pattern = r'diseases-conditions/([^/]+)' 
     match=re.search(pattern,url)
     name=match.group(1)
+    inc=0
+    print(name)
+    if symptom:
+        symptom=symptom.get_text().strip()
 
-    symptom=symptom.get_text().strip()
+        pattern2 = r'Symptoms\s*(.*?)\s*(?=Causes|When to see a doctor)'
+        match = re.search(pattern2, symptom, re.DOTALL)
+        if match:
+            symptom = match.group(1).strip()
+            os.makedirs(save_directory, exist_ok=True)
+            file_path = os.path.join(save_directory, f"{name}.txt") 
+            file_path2 = os.path.join(save_directory, "123LIST.txt") 
 
-    pattern2 = r'Symptoms\s*(.*?)\s*(?=Causes|When to see a doctor)'
-    match = re.search(pattern2, symptom, re.DOTALL)
-    symptom = match.group(1).strip()
+            with open(file_path,"w") as f:
+                f.write(symptom.strip())
+            with open(file_path2,"a") as f:
+                f.write(f"{name}\n")
 
-    with open(f"{name}.txt","w") as f:
-        f.write(symptom.strip())
-
+    else :
+        file_path2 = os.path.join(save_directory, "123LIST-COMPLIMENT.txt") 
+        with open(file_path2,"a") as f:
+                f.write(f"{name}\n")
+                print(inc+1)
+    
 
 with open("diseaselink.txt","r") as r:
     lines=r.readlines()
@@ -64,7 +79,11 @@ with open("diseaselink.txt","r") as r:
 
 links=[line.strip() for line in lines]
 
+"""
+for i in range(0,1200):
+    ExtractSymptom(links[i],"/home/jeevandas/myproject/MedicalBoat/save_directory")
 
+"""
 
 
 
